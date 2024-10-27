@@ -1,6 +1,7 @@
 matplotlib
 numpy
 pandas 
+tensorflow==2.*
 keras==2.15.0
 scipy
 scikit-learn
