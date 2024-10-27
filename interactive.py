@@ -21,12 +21,6 @@ import functools
 from itertools import chain
 import string
 
-swidth = streamlit_js_eval.streamlit_js_eval(js_expressions='screen.width', want_output = True, key = 'SCR')
-try:
-    swidth = int(swidth)
-except TypeError:
-    swidth = 1100
-
 def my_cache(f):
     @st.cache_data(max_entries=5, ttl=600)
     @functools.wraps(f)
@@ -181,10 +175,7 @@ def trig(x, *args): # x = [C0, amp, psi]
 def show_st_3dmol(pdb_code,original_pdb,cartoon_style="oval",
                   cartoon_radius=0.2,cartoon_color="lightgray",zoom=1,spin_on=False):
     
-    if swidth >= 1000:
-        view = py3Dmol.view(width=int(swidth/2), height=int(swidth/3))
-    else:
-        view = py3Dmol.view(width=int(swidth), height=int(swidth))
+    view = py3Dmol.view(width=300, height=300)
         
     view.addModelsAsFrames(pdb_code)
     view.addModelsAsFrames(original_pdb)
@@ -210,10 +201,7 @@ def show_st_3dmol(pdb_code,original_pdb,cartoon_style="oval",
     view.spin(spin_on)
     view.zoom(zoom)
 
-    if swidth >= 1000:
-        showmol(view, height=int(swidth/3), width=int(swidth/2))
-    else:
-        showmol(view, height=int(swidth), width=int(swidth))
+    showmol(view, height=300, width=300)
     return 0
 
 def helpercode(model_num: int, seqlist: dict, pool, sequence):
