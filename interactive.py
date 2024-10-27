@@ -175,7 +175,7 @@ def trig(x, *args): # x = [C0, amp, psi]
 def show_st_3dmol(pdb_code,original_pdb,cartoon_style="oval",
                   cartoon_radius=0.2,cartoon_color="lightgray",zoom=1,spin_on=True):
     
-    view = py3Dmol.view(width=350, height=350)
+    view = py3Dmol.view(width=350, height=300)
         
     view.addModelsAsFrames(pdb_code)
     view.addModelsAsFrames(original_pdb)
@@ -201,7 +201,7 @@ def show_st_3dmol(pdb_code,original_pdb,cartoon_style="oval",
     view.spin(spin_on)
     view.zoom(zoom)
 
-    showmol(view, height=350, width=350)
+    showmol(view, height=350, width=300)
     return 0
 
 def helpercode(model_num: int, seqlist: dict, pool, sequence):
