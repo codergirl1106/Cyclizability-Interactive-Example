@@ -325,7 +325,7 @@ def spatial_analysis_ui(imgg, sequence, texttt, cords):
     show_st_3dmol(pdb_output,texttt)
     
 def main():
-     st.markdown(
+    st.markdown(
         """
         <style>
         .reportview-container {
