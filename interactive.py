@@ -325,6 +325,16 @@ def spatial_analysis_ui(imgg, sequence, texttt, cords):
     show_st_3dmol(pdb_output,texttt)
     
 def main():
+     st.markdown(
+        """
+        <style>
+        .reportview-container {
+            background: #FFFFFF
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     texttt = getTexttt("7OHC")
     seq, cords = getSequence("7OHC")
     imgg = io.BytesIO()
