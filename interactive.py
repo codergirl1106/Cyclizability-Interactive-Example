@@ -36,7 +36,7 @@ def my_cache(f):
 
 @st.cache_data
 def load_model(modelnum: int):
-    return keras.layers.TFSMLayer(f"./adapter-free-Model/C{modelnum}free")
+    return keras.models.load_model(f"./adapter-free-Model/C{modelnum}free")
 
 def pred(model, pool):
     input = np.zeros((len(pool), 200), dtype = np.single)
